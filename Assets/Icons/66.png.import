@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctweqnkwhwd4j"
-path="res://.godot/imported/Ogre_walk.png-e7cb2fa5a51241cd2c1b93cb1ae21050.ctex"
+uid="uid://batko7degrnuq"
+path="res://.godot/imported/66.png-c9db377edb0e7a46e6a52affec7876f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Monsters/Ogre_walk.png"
-dest_files=["res://.godot/imported/Ogre_walk.png-e7cb2fa5a51241cd2c1b93cb1ae21050.ctex"]
+source_file="res://Assets/Icons/66.png"
+dest_files=["res://.godot/imported/66.png-c9db377edb0e7a46e6a52affec7876f0.ctex"]
 
 [params]
 
