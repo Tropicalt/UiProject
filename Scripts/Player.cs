@@ -1,11 +1,14 @@
 using Godot;
 
+
 namespace UIProject.Scripts;
 
 public partial class Player : Creature
 {
 	[Signal]
 	public delegate void LivesChangedEventHandler(int lives);
+[Signal] public delegate void HealthChangedEventHandler(float value);
+[Signal] public delegate void StaminaChangedEventHandler(float value);
 
 
 	[Export]
