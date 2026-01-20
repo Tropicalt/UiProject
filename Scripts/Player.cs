@@ -16,6 +16,8 @@ public partial class Player : Creature
 	private bool IsAttacking => _sprite.Animation.ToString() == "attack" && _sprite.IsPlaying();
 
 	private AnimatedSprite2D _sprite;
+	private AnimatedSprite2D _hearts;
+	private AnimatedSprite2D _health;
 	private Area2D _hurtBox;
 
 	public override void _Ready()
@@ -24,6 +26,8 @@ public partial class Player : Creature
 		_startPosition = GlobalPosition;
 		
 		_sprite = GetNode<AnimatedSprite2D>("Sprite");
+		_hearts = GetNode<AnimatedSprite2D>("Hearts");
+		_health = GetNode<AnimatedSprite2D>("Health");
 		_hurtBox = GetNode<Area2D>("HurtBox");
 	}
 
@@ -47,14 +51,17 @@ public partial class Player : Creature
 	public void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
-
+		_health.Frame = 3 - CurrentHealth;
 		if (CurrentHealth <= 0)
 		{
 			Lives -= 1;
+			_hearts.Frame = 3 - Lives;
+			_health.Frame = 0;
 			EmitSignal(SignalName.LivesChanged, Lives);
 			if (Lives <= 0) {
 				GD.Print("Game Over");
 				GetTree().Quit();
+
 			}
 			else
 			{

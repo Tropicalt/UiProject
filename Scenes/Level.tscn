@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=4 uid="uid://giltv7yrltbt"]
+[gd_scene load_steps=12 format=4 uid="uid://giltv7yrltbt"]
 
 [ext_resource type="PackedScene" uid="uid://bff8vrk62tyue" path="res://Scenes/TileMap.tscn" id="1_i1qvb"]
 [ext_resource type="PackedScene" uid="uid://bfoummb5wftve" path="res://Scenes/Player.tscn" id="2_7i348"]
 [ext_resource type="PackedScene" uid="uid://v074xqwg3vcg" path="res://Scenes/Ogre.tscn" id="3_4iqyc"]
+[ext_resource type="Texture2D" uid="uid://b8extw1to0cg" path="res://Assets/Icons/Heart.png" id="3_fuudy"]
+[ext_resource type="Texture2D" uid="uid://1rxbrej7b75h" path="res://Assets/Icons/Missing 1 life.png" id="4_or7tv"]
+[ext_resource type="Texture2D" uid="uid://bhordguod1seo" path="res://Assets/Icons/Missing 2 lives.png" id="5_133si"]
+[ext_resource type="Texture2D" uid="uid://d3kavyaogy2u3" path="res://Assets/Icons/100.png" id="6_esopp"]
+[ext_resource type="Texture2D" uid="uid://batko7degrnuq" path="res://Assets/Icons/66.png" id="7_b10nm"]
+[ext_resource type="Texture2D" uid="uid://dpkqi0xroxu6p" path="res://Assets/Icons/34.png" id="8_fhlu0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bktio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fuudy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_or7tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_133si")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrlyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_esopp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b10nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fhlu0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level" type="Node2D"]
 
@@ -14,6 +54,17 @@ position = Vector2(-166, -10)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+
+[node name="Hearts" type="AnimatedSprite2D" parent="Player"]
+z_index = 100
+position = Vector2(-156, -93)
+sprite_frames = SubResource("SpriteFrames_bktio")
+
+[node name="Health" type="AnimatedSprite2D" parent="Player"]
+z_index = 100
+position = Vector2(-32, 116)
+scale = Vector2(4.1, 1)
+sprite_frames = SubResource("SpriteFrames_nrlyp")
 
 [node name="Ogre" parent="." instance=ExtResource("3_4iqyc")]
 position = Vector2(-46, -1)
