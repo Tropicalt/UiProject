@@ -19,6 +19,7 @@ public partial class Enemy : Creature
 	private AnimatedSprite2D _sprite;
 	private Area2D _hurtBox;
 	private Timer _attackTimer;
+	private AnimatedSprite2D _score;
 	
 	public override void _Ready()
 	{
@@ -31,6 +32,7 @@ public partial class Enemy : Creature
 		_navAgent = GetNode<NavigationAgent2D>("NavigationAgent2D");
 		_sprite = GetNode<AnimatedSprite2D>("Sprite");
 		_hurtBox = GetNode<Area2D>("HurtBox");
+		_score = GetNode<AnimatedSprite2D>("Score");
 		_attackTimer = GetNode<Timer>("AttackTimer");
 	}
 
@@ -59,6 +61,7 @@ public partial class Enemy : Creature
 		CurrentHealth -= damage;
 		if (CurrentHealth <= 0)
 		{
+			_score.Frame += 1;
 			EmitSignal(SignalName.EnemyDied, Points);
 			QueueFree();
 		}
