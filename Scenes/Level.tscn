@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_133si")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -56,10 +56,12 @@ position = Vector2(-166, -10)
 zoom = Vector2(3, 3)
 
 [node name="Hearts" type="AnimatedSprite2D" parent="Player"]
+z_index = 100
 position = Vector2(-156, -93)
 sprite_frames = SubResource("SpriteFrames_bktio")
 
 [node name="Health" type="AnimatedSprite2D" parent="Player"]
+z_index = 100
 position = Vector2(-32, 116)
 scale = Vector2(4.1, 1)
 sprite_frames = SubResource("SpriteFrames_nrlyp")
