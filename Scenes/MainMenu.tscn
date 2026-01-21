@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4bfqc1g501nu"]
+
+[ext_resource type="Script" uid="uid://cwf2k4he8jlih" path="res://Scenes/Start.cs" id="1_tt5f1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tt5f1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 445.0
+offset_top = 268.0
+offset_right = 492.0
+offset_bottom = 334.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="Begin"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
