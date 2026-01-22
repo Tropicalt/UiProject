@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_tt5f1")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
 offset_left = 445.0
 offset_top = 268.0
 offset_right = 492.0

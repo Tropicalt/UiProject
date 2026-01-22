@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://giltv7yrltbt"]
+[gd_scene load_steps=13 format=4 uid="uid://giltv7yrltbt"]
 
 [ext_resource type="PackedScene" uid="uid://bff8vrk62tyue" path="res://Scenes/TileMap.tscn" id="1_i1qvb"]
 [ext_resource type="PackedScene" uid="uid://bfoummb5wftve" path="res://Scenes/Player.tscn" id="2_7i348"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3kavyaogy2u3" path="res://Assets/Icons/100.png" id="6_esopp"]
 [ext_resource type="Texture2D" uid="uid://batko7degrnuq" path="res://Assets/Icons/66.png" id="7_b10nm"]
 [ext_resource type="Texture2D" uid="uid://dpkqi0xroxu6p" path="res://Assets/Icons/34.png" id="8_fhlu0"]
+[ext_resource type="Script" uid="uid://20v2xi2a7hef" path="res://Scenes/PauseMenu.cs" id="10_esopp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bktio"]
 animations = [{
@@ -74,3 +75,34 @@ position = Vector2(321, 228)
 
 [node name="Ogre3" parent="." instance=ExtResource("3_4iqyc")]
 position = Vector2(330, -159)
+
+[node name="pauselayer" type="CanvasLayer" parent="."]
+process_mode = 1
+
+[node name="menu" type="Control" parent="pauselayer"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_esopp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauselayer/menu"]
+layout_mode = 2
+offset_left = 522.0
+offset_top = 261.0
+offset_right = 569.0
+offset_bottom = 327.0
+scale = Vector2(3.37, 3.37)
+
+[node name="Play" type="Button" parent="pauselayer/menu/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="pauselayer/menu/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="pauselayer/menu/VBoxContainer/Play" to="pauselayer/menu" method="Resume"]
+[connection signal="pressed" from="pauselayer/menu/VBoxContainer/Quit" to="pauselayer/menu" method="Quit"]
