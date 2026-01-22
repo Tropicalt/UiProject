@@ -19,6 +19,7 @@ public partial class Enemy : Creature
 	private AnimatedSprite2D _sprite;
 	private Area2D _hurtBox;
 	private Timer _attackTimer;
+	private AnimatedSprite2D _ogrehealth;
 	
 	public override void _Ready()
 	{
@@ -32,6 +33,7 @@ public partial class Enemy : Creature
 		_sprite = GetNode<AnimatedSprite2D>("Sprite");
 		_hurtBox = GetNode<Area2D>("HurtBox");
 		_attackTimer = GetNode<Timer>("AttackTimer");
+		_ogrehealth = GetNode<AnimatedSprite2D>("HealthO");
 	}
 
 	
@@ -57,6 +59,7 @@ public partial class Enemy : Creature
 	{
 		GD.Print("enemy hit");
 		CurrentHealth -= damage;
+		_ogrehealth.Frame = 3 - CurrentHealth;
 		if (CurrentHealth <= 0)
 		{
 			EmitSignal(SignalName.EnemyDied, Points);

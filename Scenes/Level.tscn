@@ -101,11 +101,29 @@ script = ExtResource("13_bktio")
 [node name="Ogre2" parent="." instance=ExtResource("3_4iqyc")]
 position = Vector2(321, 228)
 
+[node name="HealthO" type="AnimatedSprite2D" parent="Ogre2"]
+z_index = 100
+position = Vector2(-9, -66)
+scale = Vector2(1.845, 0.86)
+sprite_frames = SubResource("SpriteFrames_nrlyp")
+
 [node name="Ogre3" parent="." instance=ExtResource("3_4iqyc")]
 position = Vector2(330, -159)
 
+[node name="HealthO" type="AnimatedSprite2D" parent="Ogre3"]
+z_index = 100
+position = Vector2(-9, -66)
+scale = Vector2(1.845, 0.86)
+sprite_frames = SubResource("SpriteFrames_nrlyp")
+
 [node name="Ogre" parent="." instance=ExtResource("3_4iqyc")]
 position = Vector2(-46, -1)
+
+[node name="HealthO" type="AnimatedSprite2D" parent="Ogre"]
+z_index = 100
+position = Vector2(-9, -66)
+scale = Vector2(1.845, 0.86)
+sprite_frames = SubResource("SpriteFrames_nrlyp")
 
 [connection signal="EnemyDied" from="Ogre2" to="Player/Score" method="UpdatePoints"]
 [connection signal="EnemyDied" from="Ogre3" to="Player/Score" method="UpdatePoints"]
