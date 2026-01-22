@@ -92,8 +92,9 @@ scale = Vector2(4.1, 1)
 sprite_frames = SubResource("SpriteFrames_nrlyp")
 
 [node name="Score" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(-182, -41)
-scale = Vector2(1.26563, 1.40625)
+z_index = 100
+position = Vector2(179.25, -72.5)
+scale = Vector2(1.85157, 1.95312)
 sprite_frames = SubResource("SpriteFrames_fhlu0")
 script = ExtResource("13_bktio")
 

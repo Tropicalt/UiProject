@@ -1,15 +1,27 @@
 using Godot;
 using System;
 
-private AnimatedSprite2D _score;
+
+
 
 public partial class Score : AnimatedSprite2D
 {
 	
+	private AnimatedSprite2D _score;
 	
+	public override void _Ready()
+	{
+		
+		
+		
+		
+		
+	}
 	
 	public void UpdatePoints(int points) {
-		.Frame += 1;
+		
+		Frame = Frame + 1;   
+		
 	}
 	
 }
